@@ -1,0 +1,8 @@
+{
+  "name": "auto-zedia-chine",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Build completed'"
+  }
+}
