@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线留言 - 广州致迪雅货运 | AUTO ZEDIA CHINE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-page {
+            min-height: 100vh;
+            padding-top: 100px;
+            padding-bottom: 60px;
+        }
+
+        .contact-page .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-page .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .contact-page .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .contact-page .contact-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-page .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .contact-page .form-header .icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .contact-page .form-header .icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .contact-page .form-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .contact-page .form-header p {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .contact-page .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-page .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .contact-page .form-group input,
+        .contact-page .form-group select,
+        .contact-page .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .contact-page .form-group input:focus,
+        .contact-page .form-group select:focus,
+        .contact-page .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .contact-page .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-page .submit-btn {
+            width: 100%;
+            padding: 18px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .contact-page .form-message {
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .contact-page .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .contact-page .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+
+        .contact-page .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .contact-page .back-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-page .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-page .contact-info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .contact-page .info-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact-page .info-card i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-page .info-card h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .contact-page .info-card p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        @media (max-width: 768px) {
+            .contact-page .contact-wrapper {
+                padding: 25px;
+                margin: 0 15px;
+            }
+
+            .contact-page .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.jpg" alt="AUTO ZEDIA CHINE Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1 data-i18n="logo_title">广州致迪雅货运代理有限公司</h1>
+                    <span class="logo-en">AUTO ZEDIA CHINE</span>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="网站.html" data-i18n="nav_home">首页</a></li>
+                    <li><a href="网站.html#products" data-i18n="nav_products">主要产品</a></li>
+                    <li><a href="网站.html#services" data-i18n="nav_services">服务项目</a></li>
+                    <li><a href="网站.html#routes" data-i18n="nav_routes">航线介绍</a></li>
+                    <li><a href="网站.html#advantages" data-i18n="nav_advantages">我们的优势</a></li>
+                    <li><a href="网站.html#about" data-i18n="nav_about">关于我们</a></li>
+                    <li><a href="在线留言.html" class="active" data-i18n="nav_contact">联系方式</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="zh">中文</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="contact-page">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="contact_form_title">在线留言</h2>
+                <p data-i18n="contact_form_subtitle">填写下方表单，我们会尽快与您联系</p>
+            </div>
+
+            <div class="contact-info-cards">
+                <div class="info-card">
+                    <i class="fas fa-phone"></i>
+                    <h4 data-i18n="contact_phone">联系电话</h4>
+                    <p>+86 136 5071 1288</p>
+                    <p>+86 158 1704 9287</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <h4 data-i18n="contact_email">电子邮箱</h4>
+                    <p data-i18n="contact_email_addr">wssluck198@aliyun.com</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h4 data-i18n="contact_hours">服务时间</h4>
+                    <p data-i18n="contact_hours_1">周一至周六：9:00 - 18:00</p>
+                    <p data-i18n="contact_hours_2">周日：预约服务</p>
+                </div>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="form-header">
+                    <div class="icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <h3 data-i18n="form_header">发送留言</h3>
+                    <p data-i18n="form_header_desc">请填写以下信息，我们会尽快回复您</p>
+                </div>
+
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name" data-i18n="form_name">您的姓名 *</label>
+                        <input type="text" id="name" name="name" required data-i18n-placeholder="form_name_placeholder">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" data-i18n="form_phone">您的电话</label>
+                        <input type="tel" id="phone" name="phone" data-i18n-placeholder="form_phone_placeholder">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" data-i18n="form_email">您的邮箱</label>
+                        <input type="email" id="email" name="email" data-i18n-placeholder="form_email_placeholder">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service" data-i18n="form_service">服务类型 *</label>
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected data-i18n="form_service_select">请选择服务类型</option>
+                            <option value="container" data-i18n="form_service_1">整柜海运</option>
+                            <option value="bulk" data-i18n="form_service_2">散货拼箱</option>
+                            <option value="customs" data-i18n="form_service_3">报关清关</option>
+                            <option value="door" data-i18n="form_service_4">门到门服务</option>
+                            <option value="purchase" data-i18n="form_service_5">代购服务</option>
+                            <option value="other" data-i18n="form_service_6">其他咨询</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" data-i18n="form_message_label">留言内容</label>
+                        <textarea id="message" name="message" data-i18n-placeholder="form_message_placeholder"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn submit-btn" data-i18n="form_submit">提交留言</button>
+                </form>
+
+                <div id="formMessage" class="form-message"></div>
+            </div>
+
+            <div class="back-link">
+                <a href="网站.html">
+                    <i class="fas fa-arrow-left"></i>
+                    <span data-i18n="back_home">返回首页</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-i18n="footer_company">广州致迪雅货运代理有限公司</h3>
+                    <p class="footer-en">AUTO ZEDIA CHINE</p>
+                    <p data-i18n="footer_desc">专业刚果金海运物流服务商</p>
+                    <p data-i18n="footer_desc2">10余年行业经验，值得信赖</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer_quick_links">快速链接</h4>
+                    <ul>
+                        <li><a href="网站.html" data-i18n="nav_home">首页</a></li>
+                        <li><a href="网站.html#products" data-i18n="nav_products">主要产品</a></li>
+                        <li><a href="网站.html#services" data-i18n="nav_services">服务项目</a></li>
+                        <li><a href="在线留言.html" data-i18n="nav_contact">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer_contact">联系方式</h4>
+                    <p><i class="fas fa-phone"></i> +86 136 5071 1288</p>
+                    <p><i class="fas fa-envelope"></i> wssluck198@aliyun.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact_company_addr1">广州市越秀区麓景路8号</span></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_copyright">© 2024 广州致迪雅货运 AUTO ZEDIA CHINE 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="floating-contact-btn" draggable="true" id="floatingContactBtn">
+        <a href="网站.html">
+            <i class="fas fa-home"></i>
+            <span data-i18n="back_home">返回首页</span>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
