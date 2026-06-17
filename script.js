@@ -92,7 +92,28 @@ document.addEventListener('DOMContentLoaded', function() {
             footer_quick_links: '快速链接',
             footer_contact: '联系方式',
             footer_copyright: '© 2024 广州致迪雅货运 AUTO ZEDIA CHINE 版权所有',
-            contact_form_title: '在线留言'
+            contact_form_title: '在线留言',
+            contact_form_subtitle: '填写下方表单，我们会尽快与您联系',
+            form_header: '发送留言',
+            form_header_desc: '请填写以下信息，我们会尽快回复您',
+            form_name: '您的姓名 *',
+            form_name_placeholder: '请输入您的姓名',
+            form_phone: '您的电话',
+            form_phone_placeholder: '请输入您的电话',
+            form_email: '您的邮箱',
+            form_email_placeholder: '请输入您的邮箱',
+            form_service: '服务类型 *',
+            form_service_select: '请选择服务类型',
+            form_service_1: '整柜海运',
+            form_service_2: '散货拼箱',
+            form_service_3: '报关清关',
+            form_service_4: '门到门服务',
+            form_service_5: '代购服务',
+            form_service_6: '其他咨询',
+            form_message_label: '留言内容',
+            form_message_placeholder: '请输入您的留言内容',
+            form_submit: '提交留言',
+            back_home: '返回首页'
         },
         en: {
             logo_title: 'Guangzhou Zedya Freight Forwarding Co., Ltd.',
@@ -186,7 +207,28 @@ document.addEventListener('DOMContentLoaded', function() {
             footer_quick_links: 'Quick Links',
             footer_contact: 'Contact',
             footer_copyright: '© 2024 Guangzhou Zedya Freight AUTO ZEDIA CHINE All Rights Reserved',
-            contact_form_title: 'Contact Form'
+            contact_form_title: 'Contact Form',
+            contact_form_subtitle: 'Fill in the form below, we will contact you as soon as possible',
+            form_header: 'Send Message',
+            form_header_desc: 'Please fill in the following information, we will reply to you as soon as possible',
+            form_name: 'Your Name *',
+            form_name_placeholder: 'Please enter your name',
+            form_phone: 'Your Phone',
+            form_phone_placeholder: 'Please enter your phone',
+            form_email: 'Your Email',
+            form_email_placeholder: 'Please enter your email',
+            form_service: 'Service Type *',
+            form_service_select: 'Please select service type',
+            form_service_1: 'Full Container Shipping',
+            form_service_2: 'LCL Consolidation',
+            form_service_3: 'Customs Clearance',
+            form_service_4: 'Door-to-Door Service',
+            form_service_5: 'Purchasing Service',
+            form_service_6: 'Other Inquiry',
+            form_message_label: 'Message Content',
+            form_message_placeholder: 'Please enter your message',
+            form_submit: 'Submit Message',
+            back_home: 'Back to Home'
         },
         fr: {
             logo_title: 'Société de Transit AUTO ZEDIA CHINE',
@@ -280,7 +322,28 @@ document.addEventListener('DOMContentLoaded', function() {
             footer_quick_links: 'Liens Rapides',
             footer_contact: 'Contact',
             footer_copyright: '© 2024 Guangzhou Zedya Freight AUTO ZEDIA CHINE Tous Droits Réservés',
-            contact_form_title: 'Formulaire de Contact'
+            contact_form_title: 'Formulaire de Contact',
+            contact_form_subtitle: 'Remplissez le formulaire ci-dessous, nous vous contacterons dans les plus brefs délais',
+            form_header: 'Envoyer un Message',
+            form_header_desc: 'Veuillez remplir les informations suivantes, nous vous répondrons dans les plus brefs délais',
+            form_name: 'Votre Nom *',
+            form_name_placeholder: 'Veuillez entrer votre nom',
+            form_phone: 'Votre Téléphone',
+            form_phone_placeholder: 'Veuillez entrer votre téléphone',
+            form_email: 'Votre Email',
+            form_email_placeholder: 'Veuillez entrer votre email',
+            form_service: 'Type de Service *',
+            form_service_select: 'Veuillez sélectionner le type de service',
+            form_service_1: 'Transport de Conteneur Complet',
+            form_service_2: 'Groupage LCL',
+            form_service_3: 'Dédouanement',
+            form_service_4: 'Service Porte-à-Porte',
+            form_service_5: 'Service d\'Achat',
+            form_service_6: 'Autre Demande',
+            form_message_label: 'Contenu du Message',
+            form_message_placeholder: 'Veuillez entrer votre message',
+            form_submit: 'Envoyer le Message',
+            back_home: 'Retour à l\'Accueil'
         }
     };
 
@@ -289,6 +352,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const key = element.getAttribute('data-i18n');
             if (translations[lang] && translations[lang][key]) {
                 element.textContent = translations[lang][key];
+            }
+        });
+        
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+            const key = element.getAttribute('data-i18n-placeholder');
+            if (translations[lang] && translations[lang][key]) {
+                element.placeholder = translations[lang][key];
             }
         });
         
