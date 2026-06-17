@@ -315,6 +315,43 @@ document.addEventListener('DOMContentLoaded', function() {
         switchLanguage(savedLang);
     }
 
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formMessage = document.getElementById('formMessage');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = '发送中...';
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = '留言发送成功！我们会尽快与您联系。';
+                    form.reset();
+                } else {
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = '发送失败，请稍后重试或直接联系我们。';
+                }
+            } catch (error) {
+                formMessage.className = 'form-message error';
+                formMessage.textContent = '网络错误，请检查网络后重试。';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '提交留言';
+            }
+        });
+    }
+
     const categoryHeaders = document.querySelectorAll('.category-header');
     
     categoryHeaders.forEach(header => {
